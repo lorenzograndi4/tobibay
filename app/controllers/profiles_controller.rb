@@ -14,18 +14,19 @@ class ProfilesController < ApplicationController
     @profile = current_user.build_profile(profile_params)
 
     if @profile.save
-      redirect_to edit_profile_path(@profile), notice: "Profile successfully created"
+      redirect_to edit_profile_path(@profile), notice: "Profile created"
     else
       render :new
     end
   end
 
   def edit
+    set_profile
   end
 
   def update
     if @profile.update(profile_params)
-      redirect_to edit_profile_path(@profile), notice: "Profile successfully updated"
+      redirect_to edit_profile_path(@profile), notice: "Profile updated"
     else
       render :edit
     end
@@ -38,7 +39,7 @@ class ProfilesController < ApplicationController
 
 
     def profile_params
-      params.require(:profile).permit(:first_name, :last_name, :bio)
+      params.require(:profile).permit(:first_name, :last_name)
     end
 
 end

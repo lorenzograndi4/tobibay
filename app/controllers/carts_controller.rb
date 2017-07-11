@@ -1,12 +1,22 @@
 class CartsController < ApplicationController
+before_action :authenticate_user!
 before_action :set_product
+before_action :set_user
 
-  def create
-    @cart = current_user.selected_products.create(cart_params)
+  # def index
+  #   @carts = Cart.find(params[:user_id])
+  #   selected_products = @carts.products
+  # end
 
-    redirect_to @cart.product, notice: "Product(s) added to your cart!"
+  def new
+    @cart = current_user.carts.build
   end
 
+  def create
+    @cart = current_user.carts.build(cart_params)
+    @cart.save
+    redirect_to @cart.product, notice: "Product(s) added to your cart!"
+  end
 
   private
 
@@ -18,4 +28,7 @@ before_action :set_product
     @product = Product.find(params[:product_id])
   end
 
+  def set_user
+    @user = User.find(params[:user_id])
+  end
 end
