@@ -4,3 +4,5 @@
 <%= image_tag @product.image %>
 <hr>
 <%= link_to "[Delete]", product_path(@product.id), method: :delete, data: { confirm: "Are you sure?" } %>
+
+<%= render 'carts/form' %>

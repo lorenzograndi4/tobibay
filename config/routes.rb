@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :users  do
-    resources :carts, only: [:create, :show]
+    resources :carts, only: [:create, :show, :destroy]
     resources :profile, only: [:create, :show, :edit]
   end
 
