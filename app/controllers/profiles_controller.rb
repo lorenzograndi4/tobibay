@@ -2,6 +2,10 @@ class ProfilesController < ApplicationController
   before_action :set_profile, only: [:edit, :update]
   before_action :authenticate_user!
 
+  def show
+  @profile = Profile.find(params[:id])
+  end
+
   def new
     @profile = Profile.new
   end
