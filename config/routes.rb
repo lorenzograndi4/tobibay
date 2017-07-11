@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
+  root to: 'products#index'
 
-
-  devise_for :users, only: [:create]
+  devise_for :users
 
   resources :users  do
     resources :carts, only: [:create, :show]
