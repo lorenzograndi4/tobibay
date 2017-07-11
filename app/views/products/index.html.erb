@@ -1,5 +1,7 @@
 <h1>Products</h1>
-<% @products.each do |product| %>
- <%= link_to product.name, product_path(product.id) %>
-      
+<% @products.each do |p| %>
+   <%= link_to p.name.capitalize, product_path(p.id) %>
+  <%= link_to product_path(p.id) do %>
+     <%= image_tag p.image %>
+  <% end %>
 <% end %>
