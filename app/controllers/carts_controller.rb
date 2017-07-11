@@ -1,29 +1,22 @@
 class CartsController < ApplicationController
+before_action :authenticate_user!
 before_action :set_product
+before_action :set_user
 
-  # def create
-  #   @cart = current_user.carts.create(cart_params)
-  #
-  #   redirect_to @cart.product, notice: "Product(s) added to your cart!"
+  # def index
+  #   @carts = Cart.find(params[:user_id])
+  #   selected_products = @carts.products
   # end
 
-  def edit
+  def new
+    @cart = current_user.carts.build
   end
 
-  def add_to_cart
-    added_products = []
+  def create
+    @cart = current_user.carts.build(cart_params)
+    @cart.save
+    redirect_to @cart.product, notice: "Product(s) added to your cart!"
   end
-
-  def update
-    if @cart.update(cart_params)
-      redirect_to edit_cart_path(@cart), notice: "Cart  updated"
-    else
-      render :edit
-    end
-  end
-
-def add_to_cart
-end
 
   private
 
@@ -35,4 +28,7 @@ end
     @product = Product.find(params[:product_id])
   end
 
+  def set_user
+    @user = User.find(params[:user_id])
+  end
 end
