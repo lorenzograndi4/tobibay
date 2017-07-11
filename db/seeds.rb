@@ -12,10 +12,18 @@ product6 = Product.create(name: "agenda", price: "15.00", description: "whatami"
 #
 Mil = User.create!(email: "Milienko@gmail.com", password:"testtest")
 
-Tob = User.create!(email: "Tobienko@gmail.com", password:"testtest")
+user1 = User.create!(email: "Tobienko@gmail.com", password:"testtest")
 
 for users in 1..10
   user = User.create!(email: Faker::Internet.email, password: Faker::Internet.password(8))
+  profile1 = Profile.new()
+  cart1 = Cart.new()
+  profile1.user_id = user.id
+  cart1.user_id = user.id
 end
+
+
 puts "#{Product.all.count} products created."
 puts "#{User.all.count} users created."
+puts "#{Profile.all.count} profiles created."
+puts "#{Cart.all.count} carts created."
