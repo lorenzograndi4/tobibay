@@ -8,8 +8,8 @@ require 'rails_helper'
     end
 
     describe "associations" do
-      it { is_expected.to has_one(:profile) }
-      it { is_expected.to have_many(:products) }
+      it { is_expected.to have_one(:profile) }
+      it { is_expected.to have_many(:selected_products) }
     end
 
 end
