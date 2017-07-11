@@ -1,4 +1,4 @@
-<%= form_for [@user, @user.selected_products.new] do |f| %>
+<% form for [@cart, @cart.amounts.new] do |f| %>
 
    <p><strong>Amount:</strong> <%= f.select :amount, [["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5]],
    prompt: "Select Amount" %></p>

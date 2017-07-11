@@ -1,12 +1,29 @@
 class CartsController < ApplicationController
 before_action :set_product
 
-  def create
-    @cart = current_user.selected_products.create(cart_params)
+  # def create
+  #   @cart = current_user.carts.create(cart_params)
+  #
+  #   redirect_to @cart.product, notice: "Product(s) added to your cart!"
+  # end
 
-    redirect_to @cart.product, notice: "Product(s) added to your cart!"
+  def edit
   end
 
+  def add_to_cart
+    added_products = []
+  end
+
+  def update
+    if @cart.update(cart_params)
+      redirect_to edit_cart_path(@cart), notice: "Cart  updated"
+    else
+      render :edit
+    end
+  end
+
+def add_to_cart
+end
 
   private
 
