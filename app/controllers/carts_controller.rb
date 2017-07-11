@@ -2,9 +2,10 @@ class CartsController < ApplicationController
 before_action :set_product
 
   def create
-    @cart = current_user.selected_products.create(cart_params)
+    @cart = Cart.create(cart_params)
 
-    redirect_to @cart.product, notice: "Product(s) added to your cart!"
+    # redirect_to @cart.product
+    notice: "Product(s) added to your cart!"
   end
 
 
