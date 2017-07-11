@@ -6,7 +6,13 @@ class User < ApplicationRecord
 
   has_many :selected_products, through: :carts, source: :product
 
+  has_one :profile
+
   validates :email, presence:true
   validates :password, presence:true
+
+  def has_profile?
+      profile.present? && profile.persisted?
+  end
 
 end
