@@ -5,7 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :selected_products, through: :carts, source: :product
-
   has_one :profile
 
   validates :email, presence:true
