@@ -14,15 +14,16 @@ selected_products = []
     selected_products << @product
   end
 
-  # def new
-  #   @cart = current_user.carts.build
-  # end
-  #
-  # def create
-  #   @cart = current_user.carts.build(cart_params)
-  #   @cart.save
-  #   redirect_to @cart.product, notice: "Product(s) added to your cart!"
-  # end
+  def new
+    @cart = current_user.carts.build
+  end
+
+  def create
+    @cart = current_user.carts.build(cart_params)
+    @cart.save
+    redirect_to @cart.product, notice: "Product(s) added to your cart!"
+  end
+  
   def update
   end
 
