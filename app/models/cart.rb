@@ -8,4 +8,7 @@ class Cart < ApplicationRecord
     @product = product
     @cart.selected_products << product
   end
+
+
+
 end

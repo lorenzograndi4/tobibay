@@ -1,5 +1,9 @@
 <h1><%= @product.name.capitalize %></h1>
 <%= link_to "[Delete]", product_path(@product.id), method: :delete, data: { confirm: "Are you sure?" } %>
+
+
+<%= button_to "Add to cart", product_path(@product), method: :update %>
+
 <p>Price: <%= @product.price %> | Description: <%= @product.description %> </p>
 <%= image_tag @product.image %>
 <hr>

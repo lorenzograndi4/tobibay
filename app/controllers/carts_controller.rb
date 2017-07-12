@@ -30,6 +30,15 @@ selected_products = []
   end
 
   def update
+    set_product
+    @cart = self
+    @product.add_to_cart
+
+    if @cart.update(cart_params)
+       notice: "Profile updated"
+    else
+      notice: "something went wrong"
+    end
   end
 
   private
