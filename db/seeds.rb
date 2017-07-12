@@ -1,7 +1,10 @@
 # Generate products
 
 Product.destroy_all
+Cart.destroy_all
+Profile.destroy_all
 User.destroy_all
+
 
 product1 = Product.create(name: "chainsaw", price: "199.00", description: "careful", image: "http://res.cloudinary.com/lorenzocloudinary/image/upload/v1499768608/codaisseurify/chainsaw.jpg")
 product2 = Product.create(name: "umbrella", price: "17.00", description: "use me", image: "http://res.cloudinary.com/lorenzocloudinary/image/upload/v1499768608/codaisseurify/umbrella.jpg")
@@ -14,12 +17,23 @@ Mil = User.create!(email: "Milienko@gmail.com", password:"testtest")
 
 user1 = User.create!(email: "Tobienko@gmail.com", password:"testtest")
 
+profile1 = Profile.create(first_name: "test user", last_name: "test surname", user_id: user1.id)
+
+profile1.user_id = user1.id
+profile1.save
+
+cart1 = Cart.create(user_id: user1.id, product_id: product1.id, total_price:"100", amount:"10", selected_products:[])
+cart1.user_id = user1.id
+cart1.save
+
 for users in 1..10
   user = User.create!(email: Faker::Internet.email, password: Faker::Internet.password(8))
-  profile1 = Profile.new()
-  cart1 = Cart.new()
-  profile1.user_id = user.id
-  cart1.user_id = user.id
+  profile = Profile.create()
+  cart = Cart.create(user_id: user1.id, product_id: [], total_price:"100", amount:"10", selected_products:[])
+  profile.user_id = user.id
+  cart.user_id = user.id
+  profile.save
+  cart.save
 end
 
 
