@@ -41,3 +41,9 @@ puts "#{Product.all.count} products created."
 puts "#{User.all.count} users created."
 puts "#{Profile.all.count} profiles created."
 puts "#{Cart.all.count} carts created."
+
+product1.add_to_cart(cart1)
+
+cart1.add_product(product6)
+
+puts cart1.selected_products

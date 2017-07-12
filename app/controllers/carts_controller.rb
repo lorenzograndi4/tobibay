@@ -10,9 +10,14 @@ selected_products = []
   #   selected_products = @carts.products
   # end
 
-  def add_to_cart
-    selected_products << @product
+  def initialize (user_id: product_id: amount: selected_products:)
+    @selected_products = []
+    @user_id = set_user
+    @product = set_product
   end
+
+
+
 
   def new
     @cart = current_user.carts.build
@@ -23,14 +28,14 @@ selected_products = []
     @cart.save
     redirect_to @cart.product, notice: "Product(s) added to your cart!"
   end
-  
+
   def update
   end
 
   private
 
   def cart_params
-     params.require(:cart).permit(:amount)
+     params.require(:cart)
   end
 
   def set_product
