@@ -2,7 +2,7 @@
 <%= link_to "[Delete]", product_path(@product.id), method: :delete, data: { confirm: "Are you sure?" } %>
 
 
-<%= button_to "Add to cart", product_path(@product), method: :update %>
+<%= button_to "Add to cart", user_cart_path(@product), method: :update %>
 
 <p>Price: <%= @product.price %> | Description: <%= @product.description %> </p>
 <%= image_tag @product.image %>

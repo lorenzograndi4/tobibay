@@ -4,11 +4,10 @@ class Product < ApplicationRecord
 
   validates :name, :price, presence: true
 
-
-  def add_to_cart(cart)
+  def add_to_cart
     # set_product
-    cart = cart
-    @product = self
+    @cart = current_user.cart
+    # @product = self
     cart.selected_products << @product
   end
 end

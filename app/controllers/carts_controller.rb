@@ -12,12 +12,9 @@ selected_products = []
 
   def initialize (user_id: product_id: amount: selected_products:)
     @selected_products = []
-    @user_id = set_user
-    @product = set_product
+    # @user_id =set_user
+    # @product = set_product
   end
-
-
-
 
   def new
     @cart = current_user.carts.build
@@ -30,15 +27,16 @@ selected_products = []
   end
 
   def update
-    set_product
-    @cart = self
-    @product.add_to_cart
-
-    if @cart.update(cart_params)
-       notice: "Profile updated"
-    else
-      notice: "something went wrong"
-    end
+    add_product(@product)
+    # set_product
+    # @cart = self
+    # @product.add_to_cart
+    #
+    # if @cart.update(cart_params)
+    #    notice: "Profile updated"
+    # else
+    #   notice: "something went wrong"
+    # end
   end
 
   private
@@ -48,7 +46,7 @@ selected_products = []
   end
 
   def set_product
-    @product = Product.find(params[:product_id])
+    # @product = Product.find(params[:product_id]) # or simply :id ?
   end
 
   def set_user
