@@ -1,4 +1,4 @@
-<% form for [@cart, @cart.amounts.new] do |f| %>
+<% form for [@cart, @cart.selected_products] do |f| %>
 
    <p><strong>Amount:</strong> <%= f.select :amount, [["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5]],
    prompt: "Select Amount" %></p>
@@ -7,4 +7,6 @@
     <%= f.submit "Add to Cart", class: "btn btn-success" %>
   </div>
 
+
+<%= button_to "Add to cartola", product_path(product), , method: :update %>
 <% end %>

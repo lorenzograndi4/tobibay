@@ -15,7 +15,7 @@ product6 = Product.create(name: "agenda", price: "15.00", description: "whatami"
 #
 Mil = User.create!(email: "Milienko@gmail.com", password:"testtest")
 
-user1 = User.create!(email: "Tobienko@gmail.com", password:"testtest")
+user1 = User.create!(email: "test@test.com", password:"testtest")
 
 profile1 = Profile.create(first_name: "test user", last_name: "test surname", user_id: user1.id)
 
@@ -41,3 +41,9 @@ puts "#{Product.all.count} products created."
 puts "#{User.all.count} users created."
 puts "#{Profile.all.count} profiles created."
 puts "#{Cart.all.count} carts created."
+
+
+product1.add_to_cart(cart1)
+cart1.add_product(product6)
+
+puts cart1.selected_products
