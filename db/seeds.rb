@@ -1,6 +1,7 @@
 # Generate products
 
 Product.destroy_all
+Profile.destroy_all
 User.destroy_all
 
 product1 = Product.create(name: "chainsaw", price: "199.00", description: "careful", image: "http://res.cloudinary.com/lorenzocloudinary/image/upload/v1499768608/codaisseurify/chainsaw.jpg")
@@ -20,6 +21,8 @@ for users in 1..10
   cart1 = Cart.new()
   profile1.user_id = user.id
   cart1.user_id = user.id
+  profile1.save
+  cart1.save
 end
 
 

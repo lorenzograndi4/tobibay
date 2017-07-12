@@ -29,11 +29,11 @@ selected_products = []
   private
 
   def cart_params
-     params.require(:cart).permit(:amount)
+     params.require(:cart).permit(:amount, selected_products: [])
   end
 
   def set_product
-    @product = Product.find(params[:product_id])
+    @product = Product.find_by(product_id: params[:id])
   end
 
   def set_user
