@@ -10,5 +10,6 @@ class Product < ApplicationRecord
     cart = cart
     @product = self
     cart.selected_products << @product
+    cart.save
   end
 end

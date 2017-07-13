@@ -16,9 +16,6 @@ selected_products = []
     @product = set_product
   end
 
-
-
-
   def new
     @cart = current_user.carts.build
   end

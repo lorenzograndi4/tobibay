@@ -10,3 +10,16 @@
 
 <%= button_to "Add to cartola", product_path(product), , method: :update %>
 <% end %>
+
+
+<%= form_for @cart do |c| %>
+  <% @cart.errors.full_messages.each do |msg| %>
+    <p class="alert alert-danger"><%= msg %></p>
+  <% end %>
+
+
+  <div class="actions">
+    <%= f.submit "update", class: "btn btn-primary" %>
+    <%= link_to "Back", root_path, class: "btn btn-default" %>
+  </div>
+<% end %>
