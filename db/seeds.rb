@@ -43,7 +43,7 @@ puts "#{Profile.all.count} profiles created."
 puts "#{Cart.all.count} carts created."
 
 
-product1.add_to_cart(cart1)
-cart1.add_product(product6)
+# product1.add_to_cart(cart1)
+# cart1.add_product(product6)
 
-puts cart1.selected_products
+# puts cart1.selected_products

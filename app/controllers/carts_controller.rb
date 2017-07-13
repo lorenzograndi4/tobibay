@@ -1,9 +1,7 @@
 class CartsController < ApplicationController
 before_action :authenticate_user!
 before_action :set_product
-before_action :set_user
-
-selected_products = []
+# before_action :set_user # This is done via authenticate_user
 
   # def index
   #   @carts = Cart.find(params[:user_id])
@@ -21,13 +19,14 @@ selected_products = []
   end
 
   def create
-    @cart = current_user.carts.build(cart_params)
-    @cart.save
-    redirect_to @cart.product, notice: "Product(s) added to your cart!"
+    @cart = current_user.carts.build(params:[:user_id])
   end
 
   def update
-    add_product(@product)
+    @cart = current_user.carts.update(params:[:user_id])
+    # add_product(@product)
+    request.referrer, notice: "Product added to your cart!"
+
     # set_product
     # @cart = self
     # @product.add_to_cart
@@ -42,14 +41,14 @@ selected_products = []
   private
 
   def cart_params
-     params.require(:cart)
+     params.require(:cart).permit(:amount, selected_products: [])
   end
 
   def set_product
     # @product = Product.find(params[:product_id]) # or simply :id ?
   end
 
-  def set_user
-    @user = User.find(params[:user_id])
-  end
+  # def set_user
+  #   @user = User.find(params[:user_id])
+  # end
 end
