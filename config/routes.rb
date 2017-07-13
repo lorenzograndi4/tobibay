@@ -6,9 +6,11 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :users  do
-    namespace :api do
-      resources :carts, only: [:index, :new, :create, :show, :destroy, :update]
-    end
+      resources :carts, only: [:index, :show]
+  end
+
+  namespace :api do
+    resources :carts, only: [:create, :update, :destroy]
   end
 
   resources :profiles, only: [:new, :create, :show, :edit, :update]
