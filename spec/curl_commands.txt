@@ -1,0 +1,1 @@
+curl -i -H "Accept: application/json" -H "Content-type: application/json" -X PUT -d '{"user_id":66, "selected_products":"[38,45,87]","amount":"200"}' http://localhost:3000/users/66/api/carts/59.json
