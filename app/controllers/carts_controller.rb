@@ -1,9 +1,9 @@
 class CartsController < ApplicationController
 before_action :authenticate_user!
 before_action :set_product
-before_action :set_user
-
-selected_products = []
+# before_action :set_user # Done via authenticate_user
+#
+# selected_products = [] # done in initialize
 
   # def index
   #   @carts = Cart.find(params[:user_id])
@@ -32,7 +32,7 @@ selected_products = []
     @product.add_to_cart
 
     if @cart.update(cart_params)
-       notice: "Profile updated"
+      notice: "Profile updated"
     else
       notice: "something went wrong"
     end
