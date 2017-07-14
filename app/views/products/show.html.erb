@@ -1,4 +1,11 @@
-<h1><%= @product.name.capitalize %></h1>
+<h1 id="<%= @product.id %>" ><%= @product.name.capitalize %></h1>
+
+<%= @product.price %>
+<%= image_tag @product.image %>
+<%= @product.description %>
+
+<%= current_user.id %>
+
 <%= link_to "[Delete]", product_path(@product.id), method: :delete, data: { confirm: "Are you sure?" } %>
 
 

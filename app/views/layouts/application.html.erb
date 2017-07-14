@@ -11,17 +11,27 @@
 
   <body>
 
-    <%= render "shared/navbar" %>
+    <% if !user_signed_in? %>
+    <div class="container">
+      <div class="col-md-8">
+        <%= render "shared/anonymous_index" %>
+      </div>
+    <% else %>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+      <%= render "shared/navbar" %>
+    <div class="container">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
 
-    <div class="col-md-8">
-      <%= yield %>
-    </div>
-    <div class="col-md-4">
-      <%= render "shared/sidebar", product: @product %>      
-    </div>
-    <%= render "shared/footer" %>
+      <div class="col-md-8">
+        <%= yield %>
+      </div>
+      <div class="col-md-4">
+        <%= render "shared/sidebar", product: @product %>
+      </div>
+      </div>
+      <%= render "shared/footer" %>
+    <% end %>
+
   </body>
 </html>
