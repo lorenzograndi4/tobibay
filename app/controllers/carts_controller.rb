@@ -11,10 +11,9 @@ before_action :set_cart
   #   selected_products = @carts.products
   # end
 
-  def initialize (user_id: product_id: amount: selected_products:)
+  def initialize (user_id: amount: selected_products:)
     @selected_products = []
     @user_id = set_user
-    @product = set_product
   end
 
   def show
@@ -33,7 +32,7 @@ before_action :set_cart
 
   def update
     set_product
-    @cart = self
+    # @cart = self
     @product.add_to_cart
 
     if @cart.update(cart_params)
@@ -50,7 +49,7 @@ before_action :set_cart
   end
 
   def cart_params
-     params.require(:cart)
+     params.require(:cart).permit(:user_id :selected_products)
   end
 
   def set_product
