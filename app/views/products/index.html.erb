@@ -1,9 +1,12 @@
-<div class="container">
   <h1>Products</h1>
   <% @products.each do |p| %>
-     <%= link_to p.name.capitalize, product_path(p.id) %>
-    <%= link_to product_path(p.id) do %>
-       <%= image_tag p.image %>
-    <% end %>
-  <% end %>
-</div>
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <%= image_tag p.image %>
+        <div class="caption">
+          <h3><%= link_to p.name.capitalize, product_path(p.id) %></h3>
+          <p><%= link_to "Check this out", product_path(p.id), class: "btn btn-primary" %></p>
+        </div>
+    </div>
+  </div>
+<% end %>
