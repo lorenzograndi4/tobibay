@@ -1,12 +1,13 @@
 <footer class="footer">
   <div class="container">
-    <p>Your cart</p>
+    <div class="jumbotron">
+    <h2>Your cart</h2>
     <% Cart.all.each do |cart| %>
     <% if cart.user_id == current_user.id %>
       <%= cart.id %>
-
       <%= cart.selected_products %>
     <% end %>
     <% end %>
+    </div>  
   </div>
 </footer>
