@@ -21,7 +21,7 @@ class ProfilesController < ApplicationController
   end
 
   def edit
-    set_profile
+    redirect_to edit_profile_path(@profile)
   end
 
   def update

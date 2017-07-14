@@ -1,6 +1,7 @@
 class CartsController < ApplicationController
 before_action :authenticate_user!
 before_action :set_product
+before_action :set_cart
 # before_action :set_user # Done via authenticate_user
 #
 # selected_products = [] # done in initialize
@@ -14,6 +15,10 @@ before_action :set_product
     @selected_products = []
     @user_id = set_user
     @product = set_product
+  end
+
+  def show
+    set_cart
   end
 
   def new
@@ -39,6 +44,10 @@ before_action :set_product
   end
 
   private
+
+  def set_cart
+    @cart = Cart.find_by(user_id: current_user)
+  end
 
   def cart_params
      params.require(:cart)
