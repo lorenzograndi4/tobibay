@@ -1,6 +1,15 @@
 <div id="sidebar">
+  <p>Add a new product:</p>
+  <%= form_for product do |f| %>
+    <div class="form-group" id="formgroup-title">
+      <%= f.text_field :name, placeholder: "Type the name of your product", class: 'form-control' %>
+
+
+    </div>
+  <% end %>
+
   <ul class="list-group">
-    <li class="list-group-item ">Products: <span id="todo-count">1</span></li>
+    <li class="list-group-item ">Products: <span id="products-count">1</span></li>
     <li class="list-group-item ">Selected: <span id="completed-count">0</span></li>
     <li class="list-group-item active">Total: <span id="total-count">1</span></li>
     <li class="list-group-item "><a href="#" id="clean-up">Clean up</a></li>
